@@ -1,0 +1,10 @@
+name=connect-datagen-flight-landings
+connector.class=io.confluent.kafka.connect.datagen.DatagenConnector
+kafka.topic=FLIGHT.LANDINGS
+schema.filename=flightlandings.avsc
+schema.keyfield=eventid
+max.interval=4000
+key.converter=org.apache.kafka.connect.storage.StringConverter
+value.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter.schemas.enable=false
+tasks.max=1

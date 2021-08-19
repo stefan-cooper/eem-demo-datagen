@@ -1,0 +1,50 @@
+{
+    "type": "record",
+    "namespace": "com.acme.travel",
+    "name": "FlightLanding",
+    "doc": "Events emitted when a flight lands. Events include basic information about the flight.",
+    "fields": [
+        {
+            "name": "eventid",
+            "type": {
+                "type": "string",
+                "arg.properties": {
+                    "regex": "[0-9A-F]{12}"
+                }
+            }
+        },
+        {
+            "name": "flight",
+            "type": {
+                "type": "string",
+                "arg.properties": {
+                  "regex": "AC[1-9]{2,3}"
+                }
+              },
+            "doc": "ID for the flight that has landed"
+        },
+        {
+            "name": "terminal",
+            "type": {
+                "type": "string",
+                "arg.properties": {
+                    "options": [ "1", "2", "3", "4", "5" ]
+                }
+            },
+            "doc": "which terminal the flight has landed at"
+        },
+        {
+            "name": "passengers",
+            "type": {
+                "type": "int",
+                "arg.properties": {
+                  "range": {
+                    "min": 50,
+                    "max": 200
+                  }
+                }
+            },
+            "doc": "number of passengers on the flight"
+        }
+    ]
+}

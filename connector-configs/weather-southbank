@@ -1,0 +1,12 @@
+name=connect-weather-southbank
+locations=SouthBank/51.506864491787404:-0.11251838622884296
+url=https://api.weather.com/v3/wx
+poll.interval.minutes=15
+connector.class=com.ibm.eventstreams.connect.weathersource.WeatherSourceConnector
+topic=WEATHER.SOUTHBANK
+password=%PASSWORD%
+units=h
+key.converter.schemas.enable=false
+value.converter.schemas.enable=false
+key.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter=org.apache.kafka.connect.json.JsonConverter

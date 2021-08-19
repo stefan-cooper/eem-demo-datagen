@@ -1,0 +1,40 @@
+bootstrap.servers=%BOOTSTRAP_ADDRESS%
+
+security.protocol=SASL_SSL
+sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username='%USERNAME%' password='%PASSWORD%';
+sasl.mechanism=SCRAM-SHA-512
+
+producer.security.protocol=SASL_SSL
+producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username='%USERNAME%' password='%PASSWORD%';
+producer.sasl.mechanism=SCRAM-SHA-512
+
+consumer.security.protocol=SASL_SSL
+consumer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username='%USERNAME%' password='%PASSWORD%';
+consumer.sasl.mechanism=SCRAM-SHA-512
+
+ssl.protocol=TLSv1.2
+ssl.truststore.location=/app/cas/cert.p12
+ssl.truststore.password=%SSL_PASSWORD%
+ssl.truststore.type=PKCS12
+
+producer.ssl.protocol=TLSv1.2
+producer.ssl.truststore.location=/app/cas/cert.p12
+producer.ssl.truststore.password=%SSL_PASSWORD%
+producer.ssl.truststore.type=PKCS12
+
+consumer.ssl.protocol=TLSv1.2
+consumer.ssl.truststore.location=/app/cas/cert.p12
+consumer.ssl.truststore.password=%SSL_PASSWORD%
+consumer.ssl.truststore.type=PKCS12
+
+key.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter=org.apache.kafka.connect.json.JsonConverter
+
+key.converter.schemas.enable=true
+value.converter.schemas.enable=true
+
+offset.storage.file.filename=/tmp/onprem.connect.offsets
+
+offset.flush.interval.ms=5000
+
+plugin.path=/app/jars

@@ -1,0 +1,10 @@
+name=connect-datagen-flight-takeoffs
+connector.class=io.confluent.kafka.connect.datagen.DatagenConnector
+kafka.topic=FLIGHT.TAKEOFFS
+schema.filename=flightlandings.avsc
+schema.keyfield=eventid
+max.interval=5000
+key.converter=org.apache.kafka.connect.storage.StringConverter
+value.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter.schemas.enable=false
+tasks.max=1
