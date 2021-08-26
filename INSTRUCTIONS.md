@@ -10,14 +10,16 @@ These are used in demos of Event Endpoint Management to provide "real" APIs that
 
 1. Deploy an instance of ES on-prem
     * enable SCRAM-secured external listeners
-    * samples in [specs](https://github.com/dalelane/eem-demo-datagen/tree/main/specs/eventstreams) folder to help - _note that the sample uses ephemeral storage_
+    * sample in [specs](https://github.com/dalelane/eem-demo-datagen/blob/main/specs/eventstreams/kafka.yaml) folder to help - _note that the sample uses ephemeral storage_
 2. Create the following topics (you could just rely on auto topic create, but creating them lets you choose the retention which is helpful)
+    * samples in [specs](https://github.com/dalelane/eem-demo-datagen/blob/main/specs/eventstreams/topics.yaml) folder to help
     - WEATHER.ARMONK
     - WEATHER.HURSLEY
     - WEATHER.NORTHHARBOUR
     - WEATHER.PARIS
     - WEATHER.SOUTHBANK
 3. Create SCRAM credentials with permissions to publish to those topics
+    * sample in [specs](https://github.com/dalelane/eem-demo-datagen/blob/main/specs/eventstreams/user.yaml) folder to help - _note that it creates an all-access API key_
 4. Download the p12 CA for your ES cluster
 5. Create a `docker-env` file based on the [template](https://github.com/dalelane/eem-demo-datagen/blob/main/sample-docker-env) and update it with the details for your ES cluster
     * _you'll need an API key for the Weather Company API to get it to run_

@@ -1,0 +1,99 @@
+---
+apiVersion: eventstreams.ibm.com/v1beta1
+kind: KafkaTopic
+metadata:
+  labels:
+    eventstreams.ibm.com/cluster: eventstreams
+  name: demo-flight-landings
+spec:
+  config:
+    min.insync.replicas: "1"
+    retention.ms: "86400000"
+  partitions: 1
+  replicas: 3
+  topicName: FLIGHT.LANDINGS
+---
+apiVersion: eventstreams.ibm.com/v1beta1
+kind: KafkaTopic
+metadata:
+  labels:
+    eventstreams.ibm.com/cluster: eventstreams
+  name: demo-flight-takeoffs
+spec:
+  config:
+    min.insync.replicas: "1"
+    retention.ms: "86400000"
+  partitions: 1
+  replicas: 3
+  topicName: FLIGHT.TAKEOFFS
+---
+apiVersion: eventstreams.ibm.com/v1beta1
+kind: KafkaTopic
+metadata:
+  labels:
+    eventstreams.ibm.com/cluster: eventstreams
+  name: demo-weather-armonk
+spec:
+  config:
+    min.insync.replicas: "1"
+    retention.ms: "604800000"
+  partitions: 1
+  replicas: 3
+  topicName: WEATHER.ARMONK
+---
+apiVersion: eventstreams.ibm.com/v1beta1
+kind: KafkaTopic
+metadata:
+  labels:
+    eventstreams.ibm.com/cluster: eventstreams
+  name: demo-weather-hursley
+spec:
+  config:
+    min.insync.replicas: "1"
+    retention.ms: "604800000"
+  partitions: 1
+  replicas: 3
+  topicName: WEATHER.HURSLEY
+---
+apiVersion: eventstreams.ibm.com/v1beta1
+kind: KafkaTopic
+metadata:
+  labels:
+    eventstreams.ibm.com/cluster: eventstreams
+  name: demo-weather-northharbour
+spec:
+  config:
+    min.insync.replicas: "1"
+    retention.ms: "604800000"
+  partitions: 1
+  replicas: 3
+  topicName: WEATHER.NORTHHARBOUR
+---
+apiVersion: eventstreams.ibm.com/v1beta1
+kind: KafkaTopic
+metadata:
+  labels:
+    eventstreams.ibm.com/cluster: eventstreams
+  name: demo-weather-paris
+spec:
+  config:
+    min.insync.replicas: "1"
+    retention.ms: "604800000"
+  partitions: 1
+  replicas: 3
+  topicName: WEATHER.PARIS
+---
+apiVersion: eventstreams.ibm.com/v1beta1
+kind: KafkaTopic
+metadata:
+  labels:
+    eventstreams.ibm.com/cluster: eventstreams
+  name: demo-weather-southbank
+spec:
+  config:
+    min.insync.replicas: "1"
+    retention.ms: "604800000"
+  partitions: 1
+  replicas: 3
+  topicName: WEATHER.SOUTHBANK
+---
