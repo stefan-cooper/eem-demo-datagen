@@ -34,6 +34,8 @@ CLASSPATH=/app/kafka_2.13-2.8.0/libs/*:/app/jars/* /app/kafka_2.13-2.8.0/bin/con
     /app/connect-configs/connect-config.properties \
     /app/connector-configs/weather-armonk \
     /app/connector-configs/weather-hursley \
+    /app/connector-configs/weather-northharbour \
+    /app/connector-configs/weather-paris \
     /app/connector-configs/weather-southbank \
     /app/connector-configs/flight-landings \
     /app/connector-configs/flight-takeoffs
