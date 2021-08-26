@@ -1,0 +1,78 @@
+asyncapi: 2.0.0
+
+# ---
+
+id: 'urn:dalelane:flight-events'
+
+# ---
+
+info:
+  title: Flight events
+  version: 0.0.1
+  description: my description.
+  termsOfService: https://flight-systems.com/kafka/tos.html
+  contact:
+    name: Dale Lane
+    email: dale.lane@uk.ibm.com
+    url: https://flight-systems.com/contacts/dalelane.html
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# ---
+
+tags:
+  - name: demo
+    description: Sample AsyncAPI specs
+  - name: flights
+    description: Flight themed specs
+
+# ---
+
+externalDocs:
+  description: Further detail about the flight tracking system
+  url: https://flight-systems.com/documentation.html
+
+# ---
+
+servers:
+  broker:
+    url: 'localhost:9092'
+    protocol: kafka
+    protocolVersion: '2.6.0'
+
+# ---
+
+channels:
+
+  FLIGHT.LANDINGS:
+    description: my description
+    subscribe:
+      message:
+        name: landingEvent
+        title: Flight landing event
+        summary: Flight landing information
+        description: my description
+        schemaFormat: 'application/vnd.aai.asyncapi;version=2.0.0'
+        contentType: 'application/json'
+        payload:
+          type: object
+          required:
+          - flight
+          - terminal
+          - passengers
+          properties:
+            flight:
+              description: ID for the flight that has landed
+              type: string
+            terminal:
+              description: which terminal the flight has landed at
+              type: string
+            passengers:
+              description: Number of passengers on the flight
+              type: integer
+          additionalProperties: false
+        examples:
+          - payload: |
+              {"flight": "AC300", "terminal": "2", "passengers": 88}
+

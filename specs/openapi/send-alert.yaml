@@ -1,0 +1,59 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Taxi messaging
+servers:
+  - url: http://your-node-red-host:1880
+paths:
+  /api/v1/taxialert:
+    post:
+      summary: Send a message to taxi drivers
+      operationId: taxiAlert
+      tags:
+        - taxis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - taxis
+                - message
+              properties:
+                taxis:
+                  type: array
+                  items:
+                    type: integer
+                    format: int32
+                message:
+                  type: string
+      responses:
+        '201':
+          description: message sent
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Ack"
+        '400':
+          description: missing request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Ack:
+      type: object
+      required:
+        - sent
+      properties:
+        sent:
+          type: string
+    Error:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string

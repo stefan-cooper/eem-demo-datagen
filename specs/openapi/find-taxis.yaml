@@ -1,0 +1,60 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Taxi locator
+servers:
+  - url: http://your-node-red-host:1880
+paths:
+  /api/v1/findtaxis:
+    get:
+      summary: Find taxis in a given location
+      operationId: findTaxis
+      tags:
+        - taxis
+      parameters:
+        - name: lat
+          in: query
+          description: latitude
+          required: true
+          schema:
+            type: number
+            format: double
+        - name: lon
+          in: query
+          description: longitude
+          required: true
+          schema:
+            type: number
+            format: double
+      responses:
+        '200':
+          description: list of taxi ids
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Taxis"
+        '400':
+          description: missing request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Taxis:
+      type: object
+      required:
+        - taxis
+      properties:
+        taxis:
+          type: array
+          items:
+            type: integer
+            format: int32
+    Error:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
