@@ -1,7 +1,16 @@
-# setting up sources for Kafka APIs
+# overview
+
+Two Docker images are available
+- one runs Kafka producers that each produces stream of events to a Kafka cluster that you set up
+- one hosts REST APIs
+
+These are used in demos of Event Endpoint Management to provide "real" APIs that can be managed.
+
+## setting up sources for Kafka APIs
 
 1. Deploy an instance of ES on-prem
     * enable SCRAM-secured external listeners
+    * samples in [specs](https://github.com/dalelane/eem-demo-datagen/tree/main/specs/eventstreams) folder to help - _note that the sample uses ephemeral storage_
 2. Create the following topics (you could just rely on auto topic create, but creating them lets you choose the retention which is helpful)
     - WEATHER.ARMONK
     - WEATHER.HURSLEY
@@ -24,7 +33,7 @@ docker run \
 7. Create AsyncAPIs in EEM
     * samples in [specs](https://github.com/dalelane/eem-demo-datagen/tree/main/specs/asyncapi) folder to help
 
-# setting up sources for REST APIs
+## setting up sources for REST APIs
 
 1. Run the API server
     * using the same `docker-env` file from the above instructions (only the WEATHER_APIKEY value is used)
