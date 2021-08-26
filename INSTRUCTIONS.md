@@ -24,11 +24,9 @@ These are used in demos of Event Endpoint Management to provide "real" APIs that
 6. Run the data generator
     * replace `/location/of/your/es-cert.p12` with the absolute location of your file from step 4
 ```sh
-docker run \
-    -d \
-    --env-file=docker-env \
-    --mount type=bind,source=/root/cas/es-cert.p12,target=/location/of/your/es-cert.p12,readonly \
-    quay.io/dale-lane/eem-demo-datagen:latest
+docker run -d --env-file=docker-env \
+    --mount type=bind,source=/location/of/your/es-cert.p12,target=/app/cas/cert.p12,readonly \
+    quay.io/dale-lane/eem-demo-datagen
 ```
 7. Create AsyncAPIs in EEM
     * samples in [specs](https://github.com/dalelane/eem-demo-datagen/tree/main/specs/asyncapi) folder to help
@@ -39,11 +37,9 @@ docker run \
     * using the same `docker-env` file from the above instructions (only the WEATHER_APIKEY value is used)
     * modifying the external port if you need to
 ```sh
-docker run \
-    -d \
-    --env-file=docker-env \
+docker run -d --env-file=docker-env \
     -p 1880:1880 \
-    quay.io/dale-lane/eem-demo-apis:latest
+    quay.io/dale-lane/eem-demo-apis
 ```
 
 2. Create OpenAPIs in EEM
