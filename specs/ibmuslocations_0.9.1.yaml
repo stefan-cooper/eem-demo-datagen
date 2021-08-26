@@ -1,0 +1,190 @@
+asyncapi: 2.0.0
+info:
+  version: 0.9.1
+  title: IBM US locations
+  x-ibm-name: ibmuslocations
+  description: Current weather condition events recorded at the IBM locations in the US
+  x-ibm-summary: Weather condition events from IBM US locations
+  termsOfService: 'https://acme-weather.com/tos.html'
+  contact:
+    name: Dale Lane
+    url: 'https://acme-weather.com/conditions'
+    email: dale.lane@acme-weather.com
+  license:
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+    name: Apache 2.0
+channels:
+  WEATHER.ARMONK:
+    description: 'Weather condition events from IBM Armonk, in New York, in the US'
+    subscribe:
+      message:
+        $ref: '#/components/messages/weatherConditions'
+servers:
+  broker_0:
+    url: 'eventstreams-kafka-bootstrap.eventstreams.svc:9092'
+    protocol: kafka-secure
+    security:
+      - X-IBM-Client-Id: []
+components:
+  messages:
+    weatherConditions:
+      title: Weather conditions event
+      schemaFormat: application/vnd.aai.asyncapi;version=2.0.0
+      contentType: application/json
+      payload:
+        type: object
+        required:
+          - wx_icon
+          - wind_speed
+          - temperature
+          - humidity
+        properties:
+          wx_icon:
+            description: >
+              Code representing a high-level description of the current weather
+              conditions.             
+            type: integer
+            minimum: 0
+            maximum: 47
+            oneOf:
+              - const: 0
+                description: tornado
+              - const: 1
+                description: tropical storm
+              - const: 2
+                description: hurricane
+              - const: 3
+                description: strong storms
+              - const: 4
+                description: thunderstorms
+              - const: 5
+                description: rain / snow
+              - const: 6
+                description: rain / sleet
+              - const: 7
+                description: wintry mix
+              - const: 8
+                description: freezing drizzle
+              - const: 9
+                description: drizzle
+              - const: 10
+                description: freezing rain
+              - const: 11
+                description: showers
+              - const: 12
+                description: rain
+              - const: 13
+                description: flurries
+              - const: 14
+                description: snow showers
+              - const: 15
+                description: blowing / drifting snow
+              - const: 16
+                description: snow
+              - const: 17
+                description: hail
+              - const: 18
+                description: sleet
+              - const: 19
+                description: blowing dust / sandstorm
+              - const: 20
+                description: foggy
+              - const: 21
+                description: haze
+              - const: 22
+                description: smoke
+              - const: 23
+                description: breezy
+              - const: 24
+                description: windy
+              - const: 25
+                description: frigid / ice crystals
+              - const: 26
+                description: cloudy
+              - const: 27
+                description: mostly cloudy
+              - const: 28
+                description: mostly cloudy
+              - const: 29
+                description: partly cloudy
+              - const: 30
+                description: partly cloudy
+              - const: 31
+                description: clear
+              - const: 32
+                description: sunny
+              - const: 33
+                description: fair / mostly clear
+              - const: 34
+                description: fair / mostly sunny
+              - const: 35
+                description: mixed rain and hail
+              - const: 36
+                description: hot
+              - const: 37
+                description: isolated thunderstorms
+              - const: 38
+                description: scattered thunderstorms
+              - const: 39
+                description: scattered showers
+              - const: 40
+                description: heavy rain
+              - const: 41
+                description: scattered snow showers
+              - const: 42
+                description: heavy snow
+              - const: 43
+                description: blizzard
+              - const: 44
+                description: not available
+              - const: 45
+                description: scattered showers
+              - const: 46
+                description: scattered snow showers
+              - const: 47
+                description: scattered thunderstorms
+          wind_speed:
+            description: >-
+              Wind speed, in miles per hour. Calculated based on a 10-minute
+              average, also known as the sustained wind speed. This excludes
+              sudden or brief variations in wind speed, also known as wind
+              gusts.
+            type: integer
+          temperature:
+            description: 'Temperature, in degrees celsius'
+            type: integer
+            minimum: -140
+            maximum: 140
+          humidity:
+            description: >-
+              Relative humidity of the air, defined as the ration of the amount
+              of water vapour in the air to the amount of vapour required to
+              bring the air to saturation at a constant temperature. Relative
+              humidity is always expressed as a percentage.
+            type: integer
+            minimum: 0
+            maximum: 100
+        additionalProperties: false
+      examples:
+        - payload: |
+            {"wx_icon":28,"wind_speed":9,"temperature":26,"humidity":77}    
+  securitySchemes:
+    X-IBM-Client-Id:
+      type: userPassword
+      description: The credential provided should be in SASL-PLAIN format
+x-ibm-configuration:
+  enforced: true
+  phase: realized
+  gateway: event-gateway
+  assembly:
+    execute:
+      - invoke-kafka:
+          title: invoke-kafka
+          version: 1.0.0
+          bootstrap.servers: 'eventstreams-kafka-bootstrap.eventstreams.svc:9092'
+          security.protocol: PLAINTEXT
+          clusterconfigid: 9e9efd9d-7ef8-4a7b-9582-00ba09614fac
+  type: asyncapi
+  testable: false
+  cors:
+    enabled: false

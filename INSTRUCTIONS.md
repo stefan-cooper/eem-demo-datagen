@@ -19,3 +19,6 @@ docker run \
     --mount type=bind,source=/root/cas/es-cert.p12,target=/location/of/your/es-cert.p12,readonly \
     quay.io/dale-lane/eem-demo-datagen:latest
 ```
+7. Create AsyncAPIs in EEM
+    * samples in [specs](https://github.com/dalelane/eem-demo-datagen/tree/main/specs) folder to help
+    * _suggestion: create most of it through the form UI then paste the message definition in the source view_
