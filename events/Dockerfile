@@ -63,7 +63,7 @@ RUN \
   git clone --depth 1 https://github.com/dalelane/kafka-connect-stockprice-source.git && \
   cd kafka-connect-stockprice-source && \
   mvn clean package && \
-  mv target/kafka-connect-stockprice-source-0.0.1-jar-with-dependencies.jar /app/jars/. && \
+  mv target/kafka-connect-stockprice-source-0.0.2-jar-with-dependencies.jar /app/jars/. && \
   cd /app && \
   rm -rf kafka-connect-stockprice-source
 

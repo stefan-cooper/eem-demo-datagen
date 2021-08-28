@@ -2,9 +2,15 @@
 
 Two Docker images are available
 - one runs Kafka producers that each produces stream of events to a Kafka cluster that you set up:
-    - stock prices for tech companies
-    - weather conditions at IBM locations
     - flight takeoff and landing events
+        - frequency: every few seconds
+        - topics: FLIGHT.LANDINGS, FLIGHT.TAKEOFFS
+    - stock prices for tech companies
+        - frequency: every minute
+        - topics: STOCK.APPLE, STOCK.GOOGLE, STOCK.IBM, STOCK.MICROSOFT, STOCK.SALESFORCE
+    - weather conditions at IBM locations
+        - frequency: every 15 minutes
+        - topics: WEATHER.ARMONK, WEATHER.HURSLEY, WEATHER.NORTHHARBOUR, WEATHER.PARIS, WEATHER.SOUTHBANK
 - one hosts REST APIs
 
 These are used in demos of Event Endpoint Management to provide "real" APIs that can be managed.
@@ -16,6 +22,8 @@ These are used in demos of Event Endpoint Management to provide "real" APIs that
     * sample in [specs](https://github.com/dalelane/eem-demo-datagen/blob/main/specs/eventstreams/kafka.yaml) folder to help - _note that the sample uses ephemeral storage_
 2. Create the following topics (you could just rely on auto topic create, but creating them lets you choose the retention which is helpful)
     * samples in [specs](https://github.com/dalelane/eem-demo-datagen/blob/main/specs/eventstreams/topics.yaml) folder to help
+    - FLIGHT.LANDINGS
+    - FLIGHT.TAKEOFFS
     - WEATHER.ARMONK
     - WEATHER.HURSLEY
     - WEATHER.NORTHHARBOUR
