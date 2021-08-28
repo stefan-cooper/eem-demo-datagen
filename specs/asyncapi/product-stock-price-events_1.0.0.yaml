@@ -1,0 +1,29 @@
+info:
+  title: Stock price events
+  name: stock-price-events
+  version: 1.0.0
+  summary: Stock price events from the AlphaVantage API
+apis:
+  techcompanies1.0.0:
+    $ref: techcompanies_1.0.0.yaml
+gateways:
+  - event-gateway
+plans:
+  default-plan:
+    title: Default Plan
+    description: Default Plan
+    approval: false
+    apis:
+      techcompanies1.0.0: {}
+product: 1.0.0
+visibility:
+  view:
+    enabled: true
+    type: public
+    tags: []
+    orgs: []
+  subscribe:
+    enabled: true
+    type: authenticated
+    tags: []
+    orgs: []

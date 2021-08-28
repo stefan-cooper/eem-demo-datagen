@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 # install core dependencies
 RUN \
   apt-get update && \
-  apt install -y curl git unzip openjdk-11-jre-headless
+  apt install -y curl git unzip maven openjdk-11-jre-headless
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ RUN \
   tar xfz kafka_2.13-2.8.0.tgz && \
   rm kafka_2.13-2.8.0.tgz
 
-# get gradle, used to build connector
+# get gradle, used to build weather connector
 RUN \
   curl https://downloads.gradle-dn.com/distributions/gradle-4.10.3-bin.zip -o /tmp/gradle.zip && \
   mkdir /tmp/gradlebin && \
@@ -47,7 +47,7 @@ RUN \
   curl -O https://packages.confluent.io/maven/io/confluent/kafka-schema-registry-client/6.0.0/kafka-schema-registry-client-6.0.0.jar
 COPY third-party-dependencies/* jars/
 
-# get the Weather connector source and build it
+# get the weather connector source and build it
 #  (then clean up, deleting the source)
 RUN \
   git clone --depth 1 https://github.com/dalelane/kafka-connect-weather-source.git && \
@@ -57,9 +57,19 @@ RUN \
   cd /app && \
   rm -rf kafka-connect-weather-source
 
+# get the stock prices connector source and build it
+#  (then clean up, deleting the source)
+RUN \
+  git clone --depth 1 https://github.com/dalelane/kafka-connect-stockprice-source.git && \
+  cd kafka-connect-stockprice-source && \
+  mvn clean package && \
+  mv target/kafka-connect-stockprice-source-0.0.1-jar-with-dependencies.jar /app/jars/. && \
+  cd /app && \
+  rm -rf kafka-connect-stockprice-source
+
 # remove remaining build dependencies
 RUN \
-  apt remove -y curl git unzip && \
+  apt remove -y curl git unzip maven && \
   rm -rf /tmp/gradle.zip /tmp/gradlebin
 
 # create folder for truststore needed for the Kafka cluster being connected to

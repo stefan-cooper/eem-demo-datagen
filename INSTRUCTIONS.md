@@ -1,7 +1,10 @@
 # overview
 
 Two Docker images are available
-- one runs Kafka producers that each produces stream of events to a Kafka cluster that you set up
+- one runs Kafka producers that each produces stream of events to a Kafka cluster that you set up:
+    - stock prices for tech companies
+    - weather conditions at IBM locations
+    - flight takeoff and landing events
 - one hosts REST APIs
 
 These are used in demos of Event Endpoint Management to provide "real" APIs that can be managed.
@@ -18,11 +21,16 @@ These are used in demos of Event Endpoint Management to provide "real" APIs that
     - WEATHER.NORTHHARBOUR
     - WEATHER.PARIS
     - WEATHER.SOUTHBANK
+    - STOCK.APPLE
+    - STOCK.GOOGLE
+    - STOCK.IBM
+    - STOCK.MICROSOFT
+    - STOCK.SALESFORCE
 3. Create SCRAM credentials with permissions to publish to those topics
     * sample in [specs](https://github.com/dalelane/eem-demo-datagen/blob/main/specs/eventstreams/user.yaml) folder to help - _note that it creates an all-access API key_
 4. Download the p12 CA for your ES cluster
 5. Create a `docker-env` file based on the [template](https://github.com/dalelane/eem-demo-datagen/blob/main/sample-docker-env) and update it with the details for your ES cluster
-    * _you'll need an API key for the Weather Company API to get it to run_
+    * _you'll need API keys for the Weather Company API and AlphaVantage API to get it to run_
 6. Run the data generator
     * replace `/location/of/your/es-cert.p12` with the absolute location of your file from step 4
 ```sh

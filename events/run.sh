@@ -13,6 +13,8 @@ echo " truststore password:"
 echo "  $SSL_PASSWORD"
 echo " weather API key:"
 echo "  $WEATHER_APIKEY"
+echo " alphavantage API key:"
+echo "  $STOCK_APIKEY"
 echo "----------------------------------------------------------------------"
 
 echo "Creating Connect config"
@@ -25,6 +27,7 @@ echo ""
 
 echo "Updating Connector configs"
 sed -i "s/%PASSWORD%/$WEATHER_APIKEY/g" ./connector-configs/weather-*
+sed -i "s/%PASSWORD%/$STOCK_APIKEY/g" ./connector-configs/stock-*
 echo ""
 
 echo "----------------------------------------------------------------------"
@@ -38,4 +41,9 @@ CLASSPATH=/app/kafka_2.13-2.8.0/libs/*:/app/jars/* /app/kafka_2.13-2.8.0/bin/con
     /app/connector-configs/weather-paris \
     /app/connector-configs/weather-southbank \
     /app/connector-configs/flight-landings \
-    /app/connector-configs/flight-takeoffs
+    /app/connector-configs/flight-takeoffs \
+    /app/connector-configs/stock-apple \
+    /app/connector-configs/stock-google \
+    /app/connector-configs/stock-ibm \
+    /app/connector-configs/stock-microsoft \
+    /app/connector-configs/stock-salesforce

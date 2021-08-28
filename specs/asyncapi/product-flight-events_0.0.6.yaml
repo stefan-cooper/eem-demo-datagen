@@ -1,0 +1,42 @@
+info:
+  version: 0.0.6
+  title: Flight events
+  name: flight-events
+  summary: Events from the Acme Air travel system
+  contact:
+    name: Dale Lane
+    email: dalelane@acmetravel.com
+    url: 'https://acme-travel.com/flights/contacts'
+  termsOfService: 'https://acme-travel.com/tos.html'
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+gateways:
+  - event-gateway
+plans:
+  default-plan:
+    title: Default Plan
+    description: Default Plan
+    rate-limits:
+      default:
+        value: 100/1hour
+    apis:
+      takeoffs0.0.8: {}
+      landings0.0.1: {}
+apis:
+  takeoffs0.0.8:
+    $ref: takeoffs_0.0.8.yaml
+  landings0.0.1:
+    $ref: landings_0.0.1.yaml
+visibility:
+  view:
+    type: public
+    orgs: []
+    tags: []
+    enabled: true
+  subscribe:
+    type: authenticated
+    orgs: []
+    tags: []
+    enabled: true
+product: 1.0.0
