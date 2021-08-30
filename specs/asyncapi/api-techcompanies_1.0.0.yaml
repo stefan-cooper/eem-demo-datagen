@@ -5,8 +5,8 @@ info:
   x-ibm-name: techcompanies
   x-ibm-summary: Stock price events for tech companies
   description: >-
-    Stock price events from Alpha Vantage for tech companies, published every 5
-    minutes during trading hours
+    Stock price events from Alpha Vantage for tech companies. One event is published every
+    minute during trading hours
   termsOfService: 'https://acme-finance.com/tos.html'
   contact:
     name: Dale Lane
@@ -95,7 +95,7 @@ components:
       examples:
         - payload: >
             {"open":303.715,"high":303.89,"low":303.5301,"close":303.6454,"volume":305035,"timestamp":1629476700,"datetime":"2021-08-20
-            11:25:00"}    
+            11:25:00"}
   securitySchemes:
     X-IBM-Client-Id:
       type: userPassword
