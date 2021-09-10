@@ -47,25 +47,25 @@ RUN \
   curl -O https://packages.confluent.io/maven/io/confluent/kafka-schema-registry-client/6.0.0/kafka-schema-registry-client-6.0.0.jar
 COPY third-party-dependencies/* jars/
 
-# get the weather connector source and build it
-#  (then clean up, deleting the source)
-RUN \
-  git clone --depth 1 https://github.com/dalelane/kafka-connect-weather-source.git && \
-  cd kafka-connect-weather-source && \
-  /tmp/gradlebin/gradle-4.10.3/bin/gradle build && \
-  mv build/libs/kafka-connect-weather-source-1.0.jar /app/jars/. && \
-  cd /app && \
-  rm -rf kafka-connect-weather-source
+# # get the weather connector source and build it
+# #  (then clean up, deleting the source)
+# RUN \
+#   git clone --depth 1 https://github.com/dalelane/kafka-connect-weather-source.git && \
+#   cd kafka-connect-weather-source && \
+#   /tmp/gradlebin/gradle-4.10.3/bin/gradle build && \
+#   mv build/libs/kafka-connect-weather-source-1.0.jar /app/jars/. && \
+#   cd /app && \
+#   rm -rf kafka-connect-weather-source
 
-# get the stock prices connector source and build it
-#  (then clean up, deleting the source)
-RUN \
-  git clone --depth 1 https://github.com/dalelane/kafka-connect-stockprice-source.git && \
-  cd kafka-connect-stockprice-source && \
-  mvn clean package && \
-  mv target/kafka-connect-stockprice-source-0.0.2-jar-with-dependencies.jar /app/jars/. && \
-  cd /app && \
-  rm -rf kafka-connect-stockprice-source
+# # get the stock prices connector source and build it
+# #  (then clean up, deleting the source)
+# RUN \
+#   git clone --depth 1 https://github.com/dalelane/kafka-connect-stockprice-source.git && \
+#   cd kafka-connect-stockprice-source && \
+#   mvn clean package && \
+#   mv target/kafka-connect-stockprice-source-0.0.2-jar-with-dependencies.jar /app/jars/. && \
+#   cd /app && \
+#   rm -rf kafka-connect-stockprice-source
 
 # remove remaining build dependencies
 RUN \

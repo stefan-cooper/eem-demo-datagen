@@ -1,0 +1,12 @@
+./kafka-console-consumer.sh --bootstrap-server "<eem_gateway_endpoint>" \
+  --group "1" \
+  --consumer-property "client.id=<client_id_for_api>" \
+  --key-deserializer "org.apache.kafka.common.serialization.StringDeserializer" \
+  --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer" \
+  --consumer-property "security.protocol=SASL_SSL" \
+  --consumer-property "sasl.mechanism=PLAIN" \
+  --consumer-property "sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username=\"<subscribed_app_api_key>\" password=\"<subscribed_app_api_secret>\";" \
+  --consumer-property "ssl.truststore.location=<path_to_gw_cert>.p12"
+  --consumer-property "ssl.truststore.password=<p12_password>"
+  --consumer-property "ssl.truststore.type=PKCS12"
+  --topic "FLIGHT.TAKEOFFS"

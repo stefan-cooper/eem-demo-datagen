@@ -1,6 +1,2 @@
-BOOTSTRAP_ADDRESS=your-kafka-bootstrap-address
-KAFKA_USERNAME=your-kafka-scram-username
-KAFKA_PASSWORD=your-kafka-scram-password
-SSL_PASSWORD=password-for-truststore
-WEATHER_APIKEY=your-weather-channel-apikey
-STOCK_APIKEY=your-alphavantage-apikey
+BOOTSTRAP_ADDRESS=
+SSL_PASSWORD=
