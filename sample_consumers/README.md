@@ -1,0 +1,1 @@
+Some example consumers which can be used to connect via eem gateway, after the details have been added

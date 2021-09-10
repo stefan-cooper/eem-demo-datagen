@@ -1,0 +1,35 @@
+{
+  topic: 'FLIGHT.TAKEOFFS',
+  partition: 0,
+  offset: '7574',
+  key: '00C37B4D9958',
+  value: '{"eventid":"00C37B4D9958","flight":"AC465","terminal":"1","passengers":199}'
+}
+{
+  topic: 'FLIGHT.TAKEOFFS',
+  partition: 0,
+  offset: '7575',
+  key: 'D91BEB7EC7DD',
+  value: '{"eventid":"D91BEB7EC7DD","flight":"AC352","terminal":"3","passengers":149}'
+}
+{
+  topic: 'FLIGHT.TAKEOFFS',
+  partition: 0,
+  offset: '7576',
+  key: 'EDEB3091D59C',
+  value: '{"eventid":"EDEB3091D59C","flight":"AC236","terminal":"4","passengers":184}'
+}
+{
+  topic: 'FLIGHT.TAKEOFFS',
+  partition: 0,
+  offset: '7577',
+  key: 'B8ABEC9633B8',
+  value: '{"eventid":"B8ABEC9633B8","flight":"AC928","terminal":"1","passengers":85}'
+}
+{
+  topic: 'FLIGHT.TAKEOFFS',
+  partition: 0,
+  offset: '7578',
+  key: 'B5B2B3984C3B',
+  value: '{"eventid":"B5B2B3984C3B","flight":"AC529","terminal":"1","passengers":75}'
+}

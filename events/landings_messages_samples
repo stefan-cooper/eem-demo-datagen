@@ -1,0 +1,77 @@
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '565',
+  key: '0ADEDFAE5460',
+  value: '{"eventid":"0ADEDFAE5460","flight":"AC615","terminal":"1","passengers":75}'
+}
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '566',
+  key: '2FC6F6A45189',
+  value: '{"eventid":"2FC6F6A45189","flight":"AC567","terminal":"5","passengers":97}'
+}
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '567',
+  key: '319EF36426AB',
+  value: '{"eventid":"319EF36426AB","flight":"AC573","terminal":"4","passengers":82}'
+}
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '568',
+  key: '91156AB3A7DA',
+  value: '{"eventid":"91156AB3A7DA","flight":"AC441","terminal":"1","passengers":161}'
+}
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '569',
+  key: '0653685F68B9',
+  value: '{"eventid":"0653685F68B9","flight":"AC271","terminal":"1","passengers":99}'
+}
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '570',
+  key: 'DA15E6DBADF7',
+  value: '{"eventid":"DA15E6DBADF7","flight":"AC195","terminal":"1","passengers":154}'
+}
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '571',
+  key: 'F5CEC4DAAFAB',
+  value: '{"eventid":"F5CEC4DAAFAB","flight":"AC368","terminal":"4","passengers":86}'
+}
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '572',
+  key: '7291CBAA018A',
+  value: '{"eventid":"7291CBAA018A","flight":"AC974","terminal":"1","passengers":156}'
+}
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '573',
+  key: '7DADF833EDBF',
+  value: '{"eventid":"7DADF833EDBF","flight":"AC754","terminal":"1","passengers":160}'
+}
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '574',
+  key: 'FA27E287F8EC',
+  value: '{"eventid":"FA27E287F8EC","flight":"AC319","terminal":"5","passengers":63}'
+}
+{
+  topic: 'FLIGHT.LANDINGS',
+  partition: 0,
+  offset: '575',
+  key: 'F12897AE6A3B',
+  value: '{"eventid":"F12897AE6A3B","flight":"AC196","terminal":"2","passengers":199}'
+}
